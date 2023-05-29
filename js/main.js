@@ -70,3 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
 // guardar libros para pushearlos al array de book y save en el local storages
 // creamos la fx renderizar cdo carga la pagina
 // creamos createBookEl  que crea los elementos texto y boton remover y el eventlistenr del boton
+const o = {
+  *generator() {
+    // …
+  }
+  ,
+};
