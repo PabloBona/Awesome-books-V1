@@ -127,13 +127,13 @@ You can deploy this project using: GitHub Pages
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Pablo Bonasera**
-- GitHub: [@BonPa](https://github.com/PabloBona)
-- LinkedIn: [Pablo Bonasera](https://www.linkedin.com/in/pablo-bonasera-142327257/) 
-  <br>
-👤 **Joseph L Kausi**
-- GitHub: [@Grandi0z](https://github.com/Grandi0z)
-- LinkedIn: [Joeph L Kausi](https://linkedin.com/in/Joeph_l_Kausi)
+- 👤 **Pablo Bonasera**
+    - GitHub: [@BonPa](https://github.com/PabloBona)
+    - LinkedIn: [Pablo Bonasera](https://www.linkedin.com/in/pablo-bonasera-142327257/) 
+
+- 👤 **Joseph L Kausi**
+    - GitHub: [@Grandi0z](https://github.com/Grandi0z)
+    - LinkedIn: [Joeph L Kausi](https://linkedin.com/in/Joeph_l_Kausi)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
