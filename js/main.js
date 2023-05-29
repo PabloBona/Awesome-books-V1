@@ -25,7 +25,7 @@ const createBookElement = (book) => {
 
   // Create function in remove buton
   removeBtn.addEventListener('click', () => {
-    books = books.filter((curBook) => book.title !== curBook.title);
+    books = books.filter((currentBook) => book.title !== currentBook.title);
     localStorage.setItem('books', JSON.stringify(books));
     bookContainer.remove();
   });
