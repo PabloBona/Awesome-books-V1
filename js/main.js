@@ -16,19 +16,13 @@ class Books {
   createBookElement(book) {
     const bookContainer = document.createElement('div');
     const titleElement = document.createElement('p');
-    const authorElement = document.createElement('p');
     const removeBtn = document.createElement('button');
-    const title = document.createTextNode(book.title);
-    const author = document.createTextNode(book.author);
+    const title = document.createTextNode(`'${book.title}' by ${book.author}`);
     const remove = document.createTextNode('Remove');
-
     titleElement.appendChild(title);
-    authorElement.appendChild(author);
     removeBtn.appendChild(remove);
     bookContainer.appendChild(titleElement);
-    bookContainer.appendChild(authorElement);
     bookContainer.appendChild(removeBtn);
-
     removeBtn.addEventListener('click', () => {
       const index = this.books.indexOf(book);
       if (index === -1) {
