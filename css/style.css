@@ -74,3 +74,7 @@ td[class='remove_btn_container'] {
 tr:nth-child(odd) {
   background-color: #d9d9d9;
 }
+
+.book-List div:nth-child(odd) {
+  background-color: #ddd;
+}
