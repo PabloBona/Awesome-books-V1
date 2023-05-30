@@ -13,7 +13,7 @@ class Books {
   }
 
   // Instant Methods, they use instant Properties to achieve the results
-  createBookElement(book, index) {
+  createBookElement(book) {
     const bookContainer = document.createElement('div');
     const titleElement = document.createElement('p');
     const authorElement = document.createElement('p');
@@ -30,6 +30,11 @@ class Books {
     bookContainer.appendChild(removeBtn);
 
     removeBtn.addEventListener('click', () => {
+      const index = this.books.indexOf(book);
+      if (index === -1) {
+        return;
+      }
+
       this.removeBook(index);
       bookContainer.remove();
     });
@@ -63,7 +68,9 @@ class Books {
   }
 
   removeBook(index) {
-    this.books = this.books.filter((book, i) => i !== index);
+    const book = this.books[index];
+    localStorage.removeItem(book.title);
+    this.books.splice(index, 1);
     this.saveBooksToLocalStorage();
   }
 
