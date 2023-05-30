@@ -68,8 +68,6 @@ class Books {
   }
 
   removeBook(index) {
-    const book = this.books[index];
-    localStorage.removeItem(book.title);
     this.books.splice(index, 1);
     this.saveBooksToLocalStorage();
   }
