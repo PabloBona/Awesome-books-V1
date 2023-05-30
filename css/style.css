@@ -1,7 +1,7 @@
-
-*{
-  font-family: "Pangolin", Courier, monospace;
+* {
+  font-family: 'Pangolin', Courier, monospace;
 }
+
 h1 {
   display: flex;
   justify-content: center;
@@ -27,6 +27,7 @@ hr {
   align-items: center;
   gap: 1rem;
 }
+
 .book-form > div {
   display: flex;
   flex-direction: column;
@@ -34,7 +35,7 @@ hr {
   row-gap: 5px;
 }
 
-button[type="submit"] {
+button[type='submit'] {
   width: fit-content;
   align-self: flex-end;
 }
@@ -61,10 +62,12 @@ table {
   border: #000 solid 1.5px;
   border-collapse: collapse;
 }
+
 td {
   padding: 16px;
 }
-td[class="remove_btn_container"] {
+
+td[class='remove_btn_container'] {
   text-align: right;
 }
 
