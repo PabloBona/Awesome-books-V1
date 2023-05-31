@@ -126,4 +126,5 @@ class Books {
   }
 }
 
+// eslint-disable-next-line no-new
 new Books();
