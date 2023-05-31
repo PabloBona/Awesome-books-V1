@@ -49,10 +49,12 @@ class Books {
     this.books.forEach((book, index) => {
       this.createBookElement(book, index);
     });
+    this.showBorder();
   }
 
   saveBooksToLocalStorage() {
     localStorage.setItem('books', JSON.stringify(this.books));
+    this.showBorder();
   }
 
   loadBooksFromLocalStorage() {
@@ -64,7 +66,8 @@ class Books {
   }
 
   showBorder() {
-    if (this.books.length !== 0) {
+    const dataSaved = localStorage.getItem('books');
+    if (dataSaved.includes('title')) {
       this.bookList.classList.add('border');
     } else {
       this.bookList.classList.remove('border');
@@ -80,6 +83,7 @@ class Books {
 
   removeBook(index) {
     this.books.splice(index, 1);
+    this.showBorder();
     this.saveBooksToLocalStorage();
   }
 
@@ -90,6 +94,7 @@ class Books {
     const author = formData.get('author');
     const newBook = { title, author };
     this.addBook(newBook);
+    this.showBorder();
     this.addForm.reset();
   }
 
