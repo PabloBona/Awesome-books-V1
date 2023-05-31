@@ -1,28 +1,37 @@
 class Books {
   constructor() {
-    // Instance Properties, describes de current state of that object
-    // this.*** is about the current object, the object wich es created by a class
     this.books = [];
     this.bookList = document.querySelector('.book-List');
     this.addForm = document.querySelector('.book-form');
+    this.bar = document.querySelector('#bar');
+    this.newTitle = document.querySelector('#h1-new');
+    this.contactSection = document.querySelector('#contact');
 
-    // Next are methods: By calling this function in the constructor, we ensure that
-    // books are automatically loaded and displayed when a new instance of the Books class created.
     this.loadBooksFromLocalStorage();
     this.addForm.addEventListener('submit', this.saveFormSubmit.bind(this));
+
+    this.navContact = document.querySelector('#nav-contact');
+    this.listButton = document.querySelector('#nav-list');
+    this.addButton = document.querySelector('#nav-add');
+    this.addTitle = document.querySelector('#h1-add');
+    this.listButton.addEventListener('click', this.showAwesomeBooks.bind(this));
+    this.addButton.addEventListener('click', this.showAddBooks.bind(this));
+    this.navContact.addEventListener('click', this.showContact.bind(this));
+    this.showAwesomeBooks();
   }
 
-  // Instant Methods, they use instant Properties to achieve the results
   createBookElement(book) {
-    const bookContainer = document.createElement('div');
-    const titleElement = document.createElement('p');
+    const bookContainer = document.createElement('tr');
+    const titleElement = document.createElement('td');
     const removeBtn = document.createElement('button');
     const title = document.createTextNode(`'${book.title}' by ${book.author}`);
     const remove = document.createTextNode('Remove');
+
     titleElement.appendChild(title);
     removeBtn.appendChild(remove);
     bookContainer.appendChild(titleElement);
     bookContainer.appendChild(removeBtn);
+
     removeBtn.addEventListener('click', () => {
       const index = this.books.indexOf(book);
       if (index === -1) {
@@ -54,6 +63,14 @@ class Books {
     }
   }
 
+  showBorder() {
+    if (this.books.length !== 0) {
+      this.bookList.classList.add('border');
+    } else {
+      this.bookList.classList.remove('border');
+    }
+  }
+
   addBook(book) {
     this.books.push(book);
     this.saveBooksToLocalStorage();
@@ -75,7 +92,34 @@ class Books {
     this.addBook(newBook);
     this.addForm.reset();
   }
+
+  showAwesomeBooks() {
+    this.addForm.classList.add('hidden');
+    this.bar.classList.add('hidden');
+    this.newTitle.classList.add('hidden');
+    this.contactSection.classList.add('hidden');
+    this.bookList.classList.remove('hidden');
+    this.addTitle.classList.remove('hidden');
+  }
+
+  showAddBooks() {
+    this.bookList.classList.add('hidden');
+    this.bar.classList.add('hidden');
+    this.addTitle.classList.add('hidden');
+    this.addForm.classList.remove('hidden');
+    this.contactSection.classList.add('hidden');
+    this.newTitle.classList.remove('hidden');
+  }
+
+  showContact() {
+    this.bookList.classList.add('hidden');
+    this.bar.classList.add('hidden');
+    this.addTitle.classList.add('hidden');
+    this.addForm.classList.add('hidden');
+    this.bar.classList.add('hidden');
+    this.newTitle.classList.add('hidden');
+    this.contactSection.classList.remove('hidden');
+  }
 }
 
-// eslint-disable-next-line no-new
 new Books();
