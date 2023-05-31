@@ -1,11 +1,80 @@
+* {
+  font-family: 'Pangolin', Courier, monospace;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  border-bottom: 6px solid #000;
+  border-left: 3px solid #000;
+  border-right: 3px solid #000;
+}
+
+hr {
+  display: flex;
+  justify-content: center;
+  width: 6rem;
+  margin: 1rem auto;
+  border: 1px solid #000;
+}
+
 .book-form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
 }
 
+.book-form > div {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  row-gap: 5px;
+}
+
+button[type='submit'] {
+  width: fit-content;
+  align-self: flex-end;
+}
+
 .book-List > div {
-  border-bottom: 1px solid #000;
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
+  border: 1px solid #000;
+  border-left: 2px solid #000;
+  border-right: 2px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+.book-form button {
+  margin-left: 8rem;
+}
+
+table {
+  width: 80%;
+  margin: 1rem auto;
+  border: #000 solid 1.5px;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 1rem;
+}
+
+td[class='remove_btn_container'] {
+  text-align: right;
+}
+
+tr:nth-child(odd) {
+  background-color: #d9d9d9;
+}
+
+.book-List div:nth-child(odd) {
+  background-color: #ddd;
 }

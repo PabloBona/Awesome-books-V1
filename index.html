@@ -4,13 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap">
     <link rel="stylesheet" href="./css/style.css" />
     <title>Awesome Books</title>
   </head>
   <body>
-    <h1>Awesome Books</h1>
+    <h1>All awesome Books</h1>
     <div class="book-List"></div>
+    <hr />
     <form class="book-form" method="post">
+        <h2>Add a new book</h2>
       <div>
         <input
           type="text"
@@ -19,8 +22,6 @@
           placeholder="Title"
           required
         />
-      </div>
-      <div>
         <input
           type="text"
           name="author"
@@ -28,8 +29,7 @@
           placeholder="Author"
           required
         />
-      </div>
-      <div><button type="submit">Add</button></div>
+  <button type="submit">Add</button></div>
     </form>
     <script src="./js/main.js"></script>
   </body>

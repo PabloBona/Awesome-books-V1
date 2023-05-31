@@ -1,66 +1,81 @@
-// We create an empty array to store title and author
-let books = [];
-// select an element with the required class
-const bookList = document.querySelector('.book-List');
-const addForm = document.querySelector('.book-form');
+class Books {
+  constructor() {
+    // Instance Properties, describes de current state of that object
+    // this.*** is about the current object, the object wich es created by a class
+    this.books = [];
+    this.bookList = document.querySelector('.book-List');
+    this.addForm = document.querySelector('.book-form');
 
-const createBookElement = (book) => {
-  // create elements
-  const bookContainer = document.createElement('div');
-  const titleElement = document.createElement('p');
-  const authorElement = document.createElement('p');
-  const removeBtn = document.createElement('button');
-  // create text nodes
-  const title = document.createTextNode(book.title);
-  const author = document.createTextNode(book.author);
-  const remove = document.createTextNode('Remove');
-  // add nodes to created elements
-  titleElement.appendChild(title);
-  authorElement.appendChild(author);
-  removeBtn.appendChild(remove);
-  // add both p and button to bookContainer(div)
-  bookContainer.appendChild(titleElement);
-  bookContainer.appendChild(authorElement);
-  bookContainer.appendChild(removeBtn);
-
-  // Create function in remove buton
-  removeBtn.addEventListener('click', () => {
-    books = books.filter((currentBook) => book.title !== currentBook.title);
-    localStorage.setItem('books', JSON.stringify(books));
-    bookContainer.remove();
-  });
-  // add .div(bookContainer) to html
-  bookList.appendChild(bookContainer);
-};
-
-const renderBookList = () => {
-  books.forEach((book) => createBookElement(book));
-};
-
-const saveBook = (book) => {
-  books.push(book);
-  localStorage.setItem('books', JSON.stringify(books));
-  createBookElement(book);
-};
-
-// create a submit event when we push the btn
-
-addForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const myFormData = new FormData(e.target); // this JS object allows to access the values of form
-  const title = myFormData.get('title'); // here we get the value of the input where name=title
-  const author = myFormData.get('author'); // here we get the value of the input where name=author
-  // Maybe we con do a console.log(title)
-  saveBook({ title, author });
-  addForm.reset();
-});
-
-// when the page loads, look for the storage data y call the render function (renderBookList)
-document.addEventListener('DOMContentLoaded', () => {
-  const dataSaved = localStorage.getItem('books');
-
-  if (dataSaved) {
-    books = JSON.parse(dataSaved);
-    renderBookList();
+    // Next are methods: By calling this function in the constructor, we ensure that
+    // books are automatically loaded and displayed when a new instance of the Books class created.
+    this.loadBooksFromLocalStorage();
+    this.addForm.addEventListener('submit', this.saveFormSubmit.bind(this));
   }
-});
+
+  // Instant Methods, they use instant Properties to achieve the results
+  createBookElement(book) {
+    const bookContainer = document.createElement('div');
+    const titleElement = document.createElement('p');
+    const removeBtn = document.createElement('button');
+    const title = document.createTextNode(`'${book.title}' by ${book.author}`);
+    const remove = document.createTextNode('Remove');
+    titleElement.appendChild(title);
+    removeBtn.appendChild(remove);
+    bookContainer.appendChild(titleElement);
+    bookContainer.appendChild(removeBtn);
+    removeBtn.addEventListener('click', () => {
+      const index = this.books.indexOf(book);
+      if (index === -1) {
+        return;
+      }
+
+      this.removeBook(index);
+      bookContainer.remove();
+    });
+
+    this.bookList.appendChild(bookContainer);
+  }
+
+  renderBookList() {
+    this.books.forEach((book, index) => {
+      this.createBookElement(book, index);
+    });
+  }
+
+  saveBooksToLocalStorage() {
+    localStorage.setItem('books', JSON.stringify(this.books));
+  }
+
+  loadBooksFromLocalStorage() {
+    const dataSaved = localStorage.getItem('books');
+    if (dataSaved) {
+      this.books = JSON.parse(dataSaved);
+      this.renderBookList();
+    }
+  }
+
+  addBook(book) {
+    this.books.push(book);
+    this.saveBooksToLocalStorage();
+    const newIndex = this.books.length - 1;
+    this.createBookElement(book, newIndex);
+  }
+
+  removeBook(index) {
+    this.books.splice(index, 1);
+    this.saveBooksToLocalStorage();
+  }
+
+  saveFormSubmit(e) {
+    e.preventDefault();
+    const formData = new FormData(this.addForm);
+    const title = formData.get('title');
+    const author = formData.get('author');
+    const newBook = { title, author };
+    this.addBook(newBook);
+    this.addForm.reset();
+  }
+}
+
+// eslint-disable-next-line no-new
+new Books();
