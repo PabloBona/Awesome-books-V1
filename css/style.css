@@ -48,3 +48,107 @@ input::placeholder {
   color: #000;
   font-weight: 600;
 }
+.nav,
+footer {
+  border: 3px solid #000;
+  padding: 0 1rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+}
+
+.nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav ul li a:hover {
+  color: #3e6fa0;
+}
+
+.nav ul li:first-child {
+  border-right: 1px solid black;
+  padding-right: 15px;
+}
+
+.nav ul li:last-child {
+  border-left: 1px solid black;
+  padding-left: 15px;
+}
+
+#current_date {
+  display: flex;
+  justify-content: end;
+  margin: 0 auto;
+  padding-top: 0.5rem;
+  font-size: 0.8rem;
+}
+.book-form {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  align-items: center;
+  gap: 1rem;
+  margin: 3rem 0;
+}
+
+.book-List {
+  max-width: 70%;
+  margin: 0 auto;
+  border: 2px solid #000;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.border {
+  border: 1px solid #000;
+}
+
+.book-List > tr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.2rem 2rem;
+  margin: 0 auto;
+  border: 1px solid #000;
+}
+
+.book-form button {
+  margin-left: 17rem;
+  padding: 0.2rem 1rem;
+  border-right: 6px solid #000;
+  font-weight: 600;
+}
+
+.book-List tr:nth-child(odd) {
+  background-color: #ddd;
+}
+
+.footer {
+  margin-top: 1rem;
+  border-radius: 3%;
+}
+
+.hidden {
+  display: none;
+}
+
+#contact,
+#h1-add,
+#h1-new {
+  font-weight: 600;
+  padding: 2rem 3rem;
+}
+
+#contact h2,
+#h1-add,
+#h1-new {
+  margin-bottom: 2rem;
+}
