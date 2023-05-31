@@ -21,60 +21,30 @@ hr {
   border: 1px solid #000;
 }
 
-.book-form {
+article {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+  justify-content: center;
+  font-weight: 600;
 }
 
-.book-form > div {
+article ul {
+  margin-top: 2rem;
+}
+
+article h2 {
   display: flex;
-  flex-direction: column;
-  width: 45%;
-  row-gap: 5px;
+  justify-content: center;
+  font-size: 2rem;
 }
 
-button[type='submit'] {
-  width: fit-content;
-  align-self: flex-end;
+input {
+  width: 20rem;
+  border: 2px solid #000;
+  min-height: 1.2rem;
 }
 
-.book-List > div {
-  border: 1px solid #000;
-  border-left: 2px solid #000;
-  border-right: 2px solid #000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 2rem;
-  max-width: 60%;
-  margin: 0 auto;
-}
-
-.book-form button {
-  margin-left: 8rem;
-}
-
-table {
-  width: 80%;
-  margin: 1rem auto;
-  border: #000 solid 1.5px;
-  border-collapse: collapse;
-}
-
-td {
-  padding: 1rem;
-}
-
-td[class='remove_btn_container'] {
-  text-align: right;
-}
-
-tr:nth-child(odd) {
-  background-color: #d9d9d9;
-}
-
-.book-List div:nth-child(odd) {
-  background-color: #ddd;
+input::placeholder {
+  padding: 0 0.5rem;
+  color: #000;
+  font-weight: 600;
 }
