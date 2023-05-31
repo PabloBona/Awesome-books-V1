@@ -21,8 +21,8 @@ class Books {
   }
 
   createBookElement(book) {
-    const bookContainer = document.createElement('tr');
-    const titleElement = document.createElement('td');
+    const bookContainer = document.createElement('div');
+    const titleElement = document.createElement('p');
     const removeBtn = document.createElement('button');
     const title = document.createTextNode(`'${book.title}' by ${book.author}`);
     const remove = document.createTextNode('Remove');
@@ -67,7 +67,7 @@ class Books {
 
   showBorder() {
     const dataSaved = localStorage.getItem('books');
-    if (dataSaved.includes('title')) {
+    if (dataSaved && dataSaved.includes('title')) {
       this.bookList.classList.add('border');
     } else {
       this.bookList.classList.remove('border');
@@ -118,7 +118,6 @@ class Books {
 
   showContact() {
     this.bookList.classList.add('hidden');
-    this.bar.classList.add('hidden');
     this.addTitle.classList.add('hidden');
     this.addForm.classList.add('hidden');
     this.bar.classList.add('hidden');

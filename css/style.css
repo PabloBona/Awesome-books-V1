@@ -112,12 +112,13 @@ footer {
   border: 2px solid #000;
 }
 
-.book-List > tr {
+.book-List > div {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0.2rem 2rem;
   margin: 0 auto;
+  gap: 1rem;
 }
 
 .book-form button {
@@ -127,7 +128,7 @@ footer {
   font-weight: 600;
 }
 
-.book-List tr:nth-child(odd) {
+.book-List div:nth-child(odd) {
   background-color: #ddd;
 }
 
