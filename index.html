@@ -4,16 +4,29 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap">
     <link rel="stylesheet" href="./css/style.css" />
     <title>Awesome Books</title>
   </head>
   <body>
-    <h1>All awesome Books</h1>
+    <header>
+      <nav class="nav">
+        <p>Awesome Books</p>
+        <ul>
+          <li><a id="nav-list" href="#">List</a></li>
+          <li><a id="nav-add" href="#">Add new</a></li>
+          <li><a id="nav-contact" href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <div id="current_date"></div>
+      <script>
+        document.getElementById('current_date').innerHTML = Date();
+      </script>
+    </header>
+    <h1 id="h1-add" class=" ">All awesome Books</h1>
+    <h1 id="h1-new" class="">Add a new Book</h1>
     <div class="book-List"></div>
-    <hr />
+    <hr id="bar" class="" />
     <form class="book-form" method="post">
-        <h2>Add a new book</h2>
       <div>
         <input
           type="text"
@@ -22,6 +35,8 @@
           placeholder="Title"
           required
         />
+      </div>
+      <div>
         <input
           type="text"
           name="author"
@@ -29,8 +44,24 @@
           placeholder="Author"
           required
         />
-  <button type="submit">Add</button></div>
+      </div>
+      <div><button type="submit">Add</button></div>
     </form>
+    <article id="contact">
+      <div>
+        <h2>Contact Information</h2>
+        <p>Do you have any questions or just want to say "Hello"?</p>
+        <p>You can reach out to us!</p>
+        <ul>
+          <li>Our email mail@mail.com</li>
+          <li>Our phone number: 00444578745</li>
+          <li>Our address StreetName 22, 84503 City,Country</li>
+        </ul>
+      </div>
+    </article>
+    <footer class="footer">
+      <p>Copyright ...</p>
+    </footer>
     <script src="./js/main.js"></script>
   </body>
 </html>
